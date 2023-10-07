@@ -1,2 +1,3 @@
-public class AuthenticationService {
+interface AuthenticationService {
+    boolean authenticate(String username, String password);
 }

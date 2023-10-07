@@ -1,46 +1,25 @@
-import java.util.Date;
-
-public abstract class Person {
-    private int id;
+abstract class Person {
     private String name;
-    private String gender;
-    private Date dateOfBirth;
-    private String contactInfo;
+    private int age;
 
-    // Конструктор
-    public Person(int id, String name, String gender, Date dateOfBirth, String contactInfo) {
-        this.id = id;
+    public Person(String name, int age) {
         this.name = name;
-        this.gender = gender;
-        this.dateOfBirth = dateOfBirth;
-        this.contactInfo = contactInfo;
-    }
-
-    // Геттеры и сеттеры
-    public int getId() {
-        return id;
+        this.age = age;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getGender() {
-        return gender;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Date getDateOfBirth() {
-        return dateOfBirth;
+    public int getAge() {
+        return age;
     }
 
-    public String getContactInfo() {
-        return contactInfo;
+    public void setAge(int age) {
+        this.age = age;
     }
-
-    public void updateContactInfo(String newContactInfo) {
-        this.contactInfo = newContactInfo;
-    }
-
-    // Абстрактный метод для получения информации о персоне
-    public abstract String getDetails();
 }
