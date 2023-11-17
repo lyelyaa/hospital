@@ -1,15 +1,43 @@
 class Doctor extends Person {
+    /**
+     * Специализация врача.
+     */
     private String specialization;
-    // Конструктор
+
+    /**
+     * Конструктор для создания объекта врача.
+     *
+     * @param name           Имя врача.
+     * @param age            Возраст врача.
+     * @param specialization Специализация врача.
+     */
     public Doctor(String name, int age, String specialization) {
         super(name, age);
         this.specialization = specialization;
     }
-    // Геттер и сеттер для специализации
+
+    /**
+     * Геттер специализации врача.
+     *
+     * @return Специализация врача.
+     */
     public String getSpecialization() {
         return specialization;
     }
+
+    /**
+     * Сеттер специализации врача.
+     *
+     * @param specialization Новая специализация врача.
+     */
     public void setSpecialization(String specialization) {
-        this.specialization = specialization;
+        if (specialization != null) {
+            this.specialization = specialization;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Doctor{name='" + getName() + "', age=" + getAge() + ", specialization='" + getSpecialization() + "'}";
     }
 }
