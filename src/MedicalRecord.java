@@ -53,9 +53,7 @@ class MedicalRecord {
             appointments.add(appointment);
 
             Patient patient = appointment.getPatient();
-
             List<String> patientDiagnosesList = patientDiagnoses.computeIfAbsent(patient, k -> new ArrayList<>());
-
             patientDiagnosesList.add(appointment.getDiagnosis());
         }
     }
@@ -81,4 +79,5 @@ class MedicalRecord {
         }
         return null;
     }
+
 }

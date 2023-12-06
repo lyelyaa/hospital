@@ -38,6 +38,8 @@ class Doctor extends Person {
 
     @Override
     public String toString() {
-        return "Doctor{name='" + getName() + "', age=" + getAge() + ", specialization='" + getSpecialization() + "'}";
+        StringBuilder sb = new StringBuilder("Doctor{name='");
+        sb.append(getName()).append("', age=").append(getAge()).append(", specialization='").append(getSpecialization()).append("'}");
+        return sb.toString();
     }
 }

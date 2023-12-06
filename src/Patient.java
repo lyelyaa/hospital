@@ -70,9 +70,9 @@ class Patient extends Person {
      */
     public String getLastDiagnosis() {
         if (medicalRecord != null) {
-            List<Appointment> appointments = medicalRecord.getAppointments();
-            if (!appointments.isEmpty()) {
-                return appointments.get(appointments.size() - 1).getDiagnosis();
+            List<String> medicalHistory = medicalRecord.getMedicalHistory();
+            if (!medicalHistory.isEmpty()) {
+                return medicalHistory.get(medicalHistory.size() - 1);
             }
         }
         return null;

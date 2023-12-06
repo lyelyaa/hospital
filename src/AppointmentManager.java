@@ -7,6 +7,10 @@ public class AppointmentManager {
      * Список приемов, хранящихся в менеджере.
      */
     private List<Appointment> appointments;
+    private Clinic clinic;
+    public void setClinic(Clinic clinic) {
+        this.clinic = clinic;
+    }
     /**
      * Конструктор для создания объекта AppointmentManager.
      */
@@ -26,17 +30,20 @@ public class AppointmentManager {
             throw new IllegalArgumentException("Patient, doctor, and date cannot be null");
         }
 
-        // Проверка наличия свободного времени у врача
         boolean isTimeSlotAvailable = isTimeSlotAvailable(doctor, date);
 
         if (isTimeSlotAvailable) {
             Appointment appointment = new Appointment(patient, doctor, date, diagnosis);
             appointments.add(appointment);
+
+            // Добавляем диагноз в медицинскую историю пациента
+            patient.getMedicalRecord().addMedicalEntry(diagnosis);
+
             return true;
         }
-
         return false;
     }
+
 
     /**
      * Метод для получения доступных временных слотов у врача на указанную дату.
@@ -97,5 +104,11 @@ public class AppointmentManager {
             }
         }
         return occupiedSlots;
+    }
+
+    private Appointment createAppointment(Patient patient, Doctor doctor, Date date, String diagnosis) {
+        Appointment appointment = new Appointment(patient, doctor, date, diagnosis);
+        appointment.setDiagnosis(diagnosis);
+        return appointment;
     }
 }
